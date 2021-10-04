@@ -2,6 +2,12 @@ boolean upkey, downkey, leftkey, rightkey, spacekey;
 Ship myShip;
 ArrayList<Bullet> myBullets;
 
+//mode variables
+int mode;
+final int INTRO = 0;
+final int GAME = 1;
+final int GAMEOVER = 2;
+
 void setup() {
   size(800,800);
   imageMode(CENTER);
@@ -20,6 +26,16 @@ void draw() {
     b.show();
     b.act();
     i++;
+  }
+  
+   if (mode == INTRO) {
+    intro();
+  } else if (mode == GAME) {
+    game();
+  } else if (mode == GAMEOVER) {
+    gameover();
+  } else {
+    println("Error: mode = " + mode);
   }
 }
 
