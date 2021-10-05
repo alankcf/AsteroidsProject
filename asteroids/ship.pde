@@ -4,6 +4,7 @@ class Ship extends GameObject {
   
   PVector direction;
   int shotTimer, threshold;
+  int flame;
   
   //Constructors
   Ship() {
@@ -13,6 +14,7 @@ class Ship extends GameObject {
    direction = new PVector(0, -0.1);
    shotTimer = 0;
    threshold = 20; //time between shots
+   flame = 255;
   }
   
   //Behavior Functions
@@ -21,10 +23,15 @@ class Ship extends GameObject {
     translate(location.x, location.y);
     rotate(direction.heading());
     
+    stroke(flame);
+    //fill(flame);
+    triangle(-50, -17, -50, 17, -15, 0);
     //spaceship
-    noFill();
+    fill(0);
     stroke(255);
     triangle(-25, -12.5, -25, 12.5, 25, 0);
+    
+    
     
     popMatrix();
   }
@@ -39,7 +46,12 @@ class Ship extends GameObject {
     shotTimer++;
     
     
-    if (upkey)     velocity.add(direction);
+    if (upkey)     {
+      velocity.add(direction);
+      flame = #FA7923;
+    } else {
+      flame = 0;
+    }
     if (downkey)   velocity.sub(direction); //sub = subtract
     if (leftkey)   direction.rotate (-radians(5));
     if (rightkey)  direction.rotate (radians(5));
