@@ -45,8 +45,11 @@ class Ship extends GameObject {
     
     shotTimer++;
     
+    if (velocity.mag() > 5) {
+     velocity.setMag(5); 
+    }
     
-    if (upkey)     {
+    if (upkey) {
       velocity.add(direction);
       flame = #FA7923;
     } else {
@@ -58,7 +61,6 @@ class Ship extends GameObject {
     if (spacekey && shotTimer > threshold) {
       myObjects.add(new Bullet());
       shotTimer = 0;
-      
     }
     
   }

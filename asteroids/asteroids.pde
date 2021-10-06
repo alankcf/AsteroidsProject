@@ -2,8 +2,23 @@ boolean upkey, downkey, leftkey, rightkey, spacekey;
 Ship myShip;
 ArrayList<GameObject> myObjects;
 
+//colors
+color pink = #EAA7FF;
+color green = #A7FFB7, x;
+color white = #FFFFFF;
+color brown = #896120;
+color red = #F70000;
+color orange = #FA8303;
+color blue = #03ADFA;
+color yellow = #E8BB3F, y;
+color black = #030303;
+color darkyellow = #FFAC12;
+color darkblue = #272D4D;
+color purple = #6E06B9;
+color darkred = #F25D5D;
+
 //mode variables
-int mode;
+int mode; 
 final int INTRO = 0;
 final int GAME = 1;
 final int GAMEOVER = 2;
@@ -17,6 +32,8 @@ void setup() {
   myObjects.add(new Asteroid());
   myObjects.add(new Asteroid());
   myObjects.add(new Asteroid());
+  
+  mode = INTRO;
 }
 
 void draw() {
@@ -25,7 +42,7 @@ void draw() {
   //myShip.act();
   
   int i = 0;
-  while (i < myObjects.size()) {
+  while (i < myObjects.size() && mode == GAME) {
     GameObject myObj = myObjects.get(i);
     myObj.show();
     myObj.act();
@@ -37,15 +54,15 @@ void draw() {
     }
   }
   
-  // if (mode == INTRO) {
-  //  intro();
-  //} else if (mode == GAME) {
-  //  game();
-  //} else if (mode == GAMEOVER) {
-  //  gameover();
-  //} else {
-  //  println("Error: mode = " + mode);
-  //}
+   if (mode == INTRO) {
+    intro();
+  } else if (mode == GAME) {
+    game();
+  } else if (mode == GAMEOVER) {
+    gameover();
+  } else {
+    println("Error: mode = " + mode);
+  }
 }
 
 void keyPressed() {

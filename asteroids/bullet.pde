@@ -8,6 +8,7 @@ class Bullet extends GameObject {
     location = new PVector(myShip.location.x, myShip.location.y);
     velocity = new PVector(myShip.direction.x, myShip.direction.y);
     velocity.setMag(10); // mag = magnitude
+    //velocity.add(Ship.velocity);
     size = 10;
   }
   
