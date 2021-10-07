@@ -8,7 +8,8 @@ class Ship extends GameObject {
   
   //Constructors
   Ship() {
-   lives = 3;
+   shiplives = 3;
+   lives = 1;
    location = new PVector(width/2, height/2);
    velocity = new PVector(0,0);
    direction = new PVector(0, -0.1);
@@ -22,14 +23,16 @@ class Ship extends GameObject {
     pushMatrix();
     translate(location.x, location.y);
     rotate(direction.heading());
-    
+    noFill();
+        
     stroke(flame);
-    //fill(flame);
+ 
     triangle(-50, -17, -50, 17, -15, 0);
-    //spaceship
-    fill(0);
     stroke(255);
     triangle(-25, -12.5, -25, 12.5, 25, 0);
+    //spaceship
+    
+    
     
     
     
@@ -63,5 +66,24 @@ class Ship extends GameObject {
       shotTimer = 0;
     }
     if (upkey == false) velocity.setMag(velocity.mag()*0.99);
+    
+    int i = 0;
+    while (i < myObjects.size()) {
+      GameObject myObj = myObjects.get(i);
+      
+      //bullet
+      if (myObj instanceof UFO_Bullet) {
+        if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <=  25 + myObj.size) {
+            //myObj.lives = 0;
+            shiplives = shiplives - 1;
+            location = new PVector(width/2, height/2);
+            direction = new PVector(0, -0.1);
+          }
+        }
+      i++;     
+    }
+    
+  
+    
   }
 }

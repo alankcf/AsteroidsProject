@@ -29,10 +29,11 @@ PImage [] gif;
 int numberOfFrames;
 int f;
 
-
-
 //UFO random path
 int UFOpath;
+
+//ship lives
+int shiplives;
 
 void setup() {
   size(800,800);
@@ -56,13 +57,11 @@ void setup() {
   int i = 0;
   while (i < numberOfFrames) {
     if (i < 10) {
-     gif[i] = loadImage("frame_00"+i+"_delay-0.03s.gif");
-      } else if (i < 40) {
-        gif[i] = loadImage("frame_0"+i+"_delay-0.03s.gif");
-      //} else {
-      //  gif[i] = loadImage("frame_"+i+"_delay-0.03s.gif");
-      }
-      i++;
+      gif[i] = loadImage("frame_00"+i+"_delay-0.03s.gif");
+     } else if (i < 40) {
+       gif[i] = loadImage("frame_0"+i+"_delay-0.03s.gif");
+     }
+    i++;
     }
  
   
@@ -84,6 +83,8 @@ void draw() {
     } else {
       i++;
     }
+    
+    
   }
   
   
