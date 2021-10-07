@@ -5,13 +5,13 @@ ArrayList<GameObject> myObjects;
 
 //colors
 color pink = #EAA7FF;
-color green = #A7FFB7, x;
+color green = #A7FFB7;
 color white = #FFFFFF;
 color brown = #896120;
 color red = #F70000;
 color orange = #FA8303;
 color blue = #03ADFA;
-color yellow = #E8BB3F, y;
+color yellow = #E8BB3F;
 color black = #030303;
 color darkyellow = #FFAC12;
 color darkblue = #272D4D;
@@ -34,6 +34,9 @@ int UFOpath;
 
 //ship lives
 int shiplives;
+
+//immunity
+int immune;
 
 void setup() {
   size(800,800);

@@ -42,6 +42,14 @@ class Asteroid extends GameObject {
             //if size = something:  stop new astroids
           }
         }
+       if (myObj instanceof Ship) {
+         if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <=  size/2 + myObj.size) {
+           shiplives--;
+           immune = 0;
+           //myObj.lives = 0;
+           lives = 0;
+         }
+       }
       i++;     
     }    
   }  

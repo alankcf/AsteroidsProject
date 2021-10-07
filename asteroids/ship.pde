@@ -16,6 +16,7 @@ class Ship extends GameObject {
    shotTimer = 0;
    threshold = 20; //time between shots
    flame = 255;
+   immune = 0;
   }
   
   //Behavior Functions
@@ -28,14 +29,13 @@ class Ship extends GameObject {
     stroke(flame);
  
     triangle(-50, -17, -50, 17, -15, 0);
-    stroke(255);
+    if (immune >= 100) {
+    stroke(white);
+    } else if (immune < 100) {
+      stroke(yellow);
+    }
     triangle(-25, -12.5, -25, 12.5, 25, 0);
     //spaceship
-    
-    
-    
-    
-    
     popMatrix();
   }
   
@@ -47,6 +47,7 @@ class Ship extends GameObject {
     super.act();
     
     shotTimer++;
+    immune++;
     
     if (velocity.mag() > 5) {
      velocity.setMag(5); 
@@ -68,6 +69,8 @@ class Ship extends GameObject {
     if (upkey == false) velocity.setMag(velocity.mag()*0.99);
     
     int i = 0;
+    
+    //while (immune > 20) {
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
       
@@ -75,15 +78,18 @@ class Ship extends GameObject {
       if (myObj instanceof UFO_Bullet) {
         if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <=  25 + myObj.size) {
             //myObj.lives = 0;
+            immune = 0;
             shiplives = shiplives - 1;
             location = new PVector(width/2, height/2);
             direction = new PVector(0, -0.1);
+            
           }
         }
+      
       i++;     
     }
     
-  
-    
-  }
+   
+    } 
+  //}
 }

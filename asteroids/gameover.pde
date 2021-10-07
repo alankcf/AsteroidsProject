@@ -10,8 +10,8 @@ void gameover () {
 void gameoverClicks () {
   mode = INTRO;
   shiplives = 3;
-  myObjects.add(new Asteroid());
-  myObjects.add(new Asteroid());
-  myObjects.add(new Asteroid());
+  myObjects.remove(new Asteroid());
+  myObjects.remove(new Asteroid());
+  myObjects.remove(new Asteroid());
   myObjects.add(new UFO());
 }
