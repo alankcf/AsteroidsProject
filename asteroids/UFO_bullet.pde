@@ -2,16 +2,16 @@ class UFO_Bullet extends GameObject {
   
   int timer;
   
-  UFO_Bullet() {
+  UFO_Bullet(float x, float y) {
     timer = 30;
     lives = 1;
-    location = new PVector(myUFO.location.x, myUFO.location.y);
-    velocity = new PVector(myUFO.direction.x, myUFO.direction.y);
+    location = new PVector(x, y);
+    velocity = new PVector(0,1); // = new PVector(direction.x, direction.y);
     velocity.setMag(10); // mag = magnitude
     //velocity.add(Ship.velocity);
     size = 10;
   }
-  
+    
   void show() {
     stroke(red);
     noFill();

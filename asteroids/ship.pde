@@ -78,11 +78,12 @@ class Ship extends GameObject {
       if (myObj instanceof UFO_Bullet) {
         if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <=  25 + myObj.size) {
             //myObj.lives = 0;
+            if (immune > 100) {
             immune = 0;
             shiplives = shiplives - 1;
             location = new PVector(width/2, height/2);
             direction = new PVector(0, -0.1);
-            
+            }
           }
         }
       

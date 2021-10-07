@@ -1,6 +1,6 @@
 boolean upkey, downkey, leftkey, rightkey, spacekey;
 Ship myShip;
-UFO myUFO;
+//UFO myUFO;
 ArrayList<GameObject> myObjects;
 
 //colors
@@ -42,7 +42,7 @@ void setup() {
   size(800,800);
   imageMode(CENTER);
   myShip = new Ship();
-  myUFO = new UFO();
+  //myUFO = new UFO();
   myObjects = new ArrayList<GameObject>();
   myObjects.add(myShip);
   myObjects.add(new Asteroid());

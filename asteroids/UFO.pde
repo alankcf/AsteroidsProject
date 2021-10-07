@@ -17,13 +17,15 @@ class UFO extends GameObject {
    size = 50;
   }
   
+ 
+  
   //Behavior Functions
   void show() { 
     
     //spaceship
     fill(0);
     stroke(red);
-    rect(myUFO.location.x, myUFO.location.y, size, size);    
+    rect(location.x, location.y, size, size);    
   }
   
   void act() {
@@ -38,15 +40,15 @@ class UFO extends GameObject {
     //how the UFO moves
     UFOpath = int (random(0, 3));
     if (UFOpath == 0) {
-      myUFO.location.add(myUFO.velocity);    
+      location.add(velocity);    
     } else if (UFOpath == 1) {  
-      myUFO.location.add(myUFO.velocity);    //sub = subtract
-    //} else if (UFOpath == 2) {  
-    //  myUFO.location.rotate (-radians(5));
-    //} else if (UFOpath == 3) {  
-    //  myUFO.location.rotate (radians(5));
+      location.add(velocity);    //sub = subtract
+    } else if (UFOpath == 2) {  
+      direction.rotate (-radians(5));
+    } else if (UFOpath == 3) {  
+      direction.rotate (radians(5));
     } else if (UFOpath == 2 && shotTimer > threshold) {
-      myObjects.add(new UFO_Bullet());
+      myObjects.add(new UFO_Bullet(location.x, location.y));
       shotTimer = 0;
     }
     
@@ -55,7 +57,7 @@ class UFO extends GameObject {
       GameObject myObj = myObjects.get(i);
       
       if (myObj instanceof Bullet) {
-        if (dist(myUFO.location.x, myUFO.location.y, myObj.location.x, myObj.location.y) <= size/2 + myObj.size) {
+        if (dist(location.x,location.y, myObj.location.x, myObj.location.y) <= size/2 + myObj.size) {
             myObj.lives = 0;
             lives = 0;
           }
@@ -64,9 +66,31 @@ class UFO extends GameObject {
     }
     
     //come back
-    if (myUFO.location.y < -50)         myUFO.location.y = height + 50;
-    if (myUFO.location.y > height + 50) myUFO.location.y = -50;
-    if (myUFO.location.x < -50)         myUFO.location.x = width + 50;
-    if (myUFO.location.x > height + 50) myUFO.location.x = -50;
+    //if (myUFO.location.y < -50)         myUFO.location.y = height + 50;
+    //if (myUFO.location.y > height + 50) myUFO.location.y = -50;
+    //if (myUFO.location.x < -50)         myUFO.location.x = width + 50;
+    //if (myUFO.location.x > height + 50) myUFO.location.x = -50;
+    
+    //come back new
+    if (location.y < -50) {
+      lives = 0;
+      myObjects.add (new UFO());
+      println("1");
+    }
+    if (location.y > height + 50) {
+      lives = 0;
+      myObjects.add (new UFO());
+      println("1");
+    }
+    if (location.x < -50)         {
+      lives = 0;
+      myObjects.add (new UFO());
+      println("1");
+    }
+    if (location.x > height + 50) {      
+      lives = 0;
+      myObjects.add (new UFO());
+      println("1");
+    }
   }
 }
