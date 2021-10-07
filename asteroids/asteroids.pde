@@ -23,6 +23,10 @@ final int INTRO = 0;
 final int GAME = 1;
 final int GAMEOVER = 2;
 
+PImage [] gif;
+int numberOfFrames;
+int f;
+
 void setup() {
   size(800,800);
   imageMode(CENTER);
@@ -34,6 +38,25 @@ void setup() {
   myObjects.add(new Asteroid());
   
   mode = INTRO;
+  
+  
+    numberOfFrames = 40;
+    gif = new PImage [numberOfFrames];
+  
+  
+  int i = 0;
+  
+  while (i < numberOfFrames) {
+    if (i < 10) {
+     gif[i] = loadImage("frame_00"+i+"_delay-0.03s.gif");
+      } else if (i < 40) {
+        gif[i] = loadImage("frame_0"+i+"_delay-0.03s.gif");
+      //} else {
+      //  gif[i] = loadImage("frame_"+i+"_delay-0.03s.gif");
+      }
+      i++;
+    }
+  
 }
 
 void draw() {
@@ -53,6 +76,8 @@ void draw() {
       i++;
     }
   }
+  
+  
   
    if (mode == INTRO) {
     intro();
