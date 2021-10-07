@@ -62,6 +62,6 @@ class Ship extends GameObject {
       myObjects.add(new Bullet());
       shotTimer = 0;
     }
-    
+    if (upkey == false) velocity.setMag(velocity.mag()*0.99);
   }
 }

@@ -1,5 +1,6 @@
 boolean upkey, downkey, leftkey, rightkey, spacekey;
 Ship myShip;
+UFO myUFO;
 ArrayList<GameObject> myObjects;
 
 //colors
@@ -23,29 +24,36 @@ final int INTRO = 0;
 final int GAME = 1;
 final int GAMEOVER = 2;
 
+//gif
 PImage [] gif;
 int numberOfFrames;
 int f;
+
+
+
+//UFO random path
+int UFOpath;
 
 void setup() {
   size(800,800);
   imageMode(CENTER);
   myShip = new Ship();
+  myUFO = new UFO();
   myObjects = new ArrayList<GameObject>();
   myObjects.add(myShip);
   myObjects.add(new Asteroid());
   myObjects.add(new Asteroid());
   myObjects.add(new Asteroid());
+  myObjects.add(new UFO());
   
-  mode = INTRO;
+  //mode
+  mode = INTRO; 
   
-  
-    numberOfFrames = 40;
-    gif = new PImage [numberOfFrames];
-  
+  //gif
+  numberOfFrames = 40;
+  gif = new PImage [numberOfFrames];
   
   int i = 0;
-  
   while (i < numberOfFrames) {
     if (i < 10) {
      gif[i] = loadImage("frame_00"+i+"_delay-0.03s.gif");
@@ -56,6 +64,7 @@ void setup() {
       }
       i++;
     }
+ 
   
 }
 
@@ -87,6 +96,10 @@ void draw() {
     gameover();
   } else {
     println("Error: mode = " + mode);
+  }
+  
+  if (mode != INTRO && mode != GAMEOVER) {
+    mode = GAME;
   }
 }
 
