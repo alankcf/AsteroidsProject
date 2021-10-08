@@ -60,6 +60,7 @@ class UFO extends GameObject {
         if (dist(location.x,location.y, myObj.location.x, myObj.location.y) <= size/2 + myObj.size) {
             myObj.lives = 0;
             lives = 0;
+            myObjects.add(new Particle(location.x, location.y));
           }
         }
       i++;
@@ -75,22 +76,22 @@ class UFO extends GameObject {
     if (location.y < -50) {
       lives = 0;
       myObjects.add (new UFO());
-      println("1");
+      //println("1");
     }
     if (location.y > height + 50) {
       lives = 0;
       myObjects.add (new UFO());
-      println("1");
+      //println("1");
     }
     if (location.x < -50)         {
       lives = 0;
       myObjects.add (new UFO());
-      println("1");
+      //println("1");
     }
     if (location.x > height + 50) {      
       lives = 0;
       myObjects.add (new UFO());
-      println("1");
+      //println("1");
     }
   }
 }

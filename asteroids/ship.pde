@@ -84,6 +84,7 @@ class Ship extends GameObject {
             shiplives = shiplives - 1;
             location = new PVector(width/2, height/2);
             direction = new PVector(0, -0.1);
+            
             }
           }
         }

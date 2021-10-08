@@ -1,5 +1,7 @@
 class Asteroid extends GameObject {
-  
+
+int t; 
+
   Asteroid() {
     lives = 1;
     location = new PVector (random(0, width), random(0, height));
@@ -16,8 +18,18 @@ class Asteroid extends GameObject {
     size = s;
   }
   
+  Asteroid(int s, float x, float y, float t) {
+    lives = 1;
+    location = new PVector (x, y);
+    velocity = new PVector (0, 1);
+    velocity.rotate (random(0, TWO_PI));
+    size = s;
+    t = 255;
+  }
+  
   void show () {
    noFill();
+   fill(grey);
    stroke(255);
    ellipse(location.x, location.y, size, size);   
   }
@@ -39,7 +51,12 @@ class Asteroid extends GameObject {
             myObjects.add(new Asteroid(size/2, location.x, location.y));
             myObjects.add(new Asteroid(size/2, location.x, location.y));
             }
-            //if size = something:  stop new astroids
+            myObjects.add(new Particle(location.x, location.y));
+            myObjects.add(new Particle(location.x, location.y));
+            myObjects.add(new Particle(location.x, location.y));
+            myObjects.add(new Particle(location.x, location.y));
+            myObjects.add(new Particle(location.x, location.y));
+            myObjects.add(new Particle(location.x, location.y));
           }
         }
        if (myObj instanceof Ship) {
@@ -54,6 +71,10 @@ class Asteroid extends GameObject {
             myObjects.add(new Asteroid(size/2, location.x, location.y));
             myObjects.add(new Asteroid(size/2, location.x, location.y));
             }
+           myObjects.add(new Particle(location.x, location.y));
+           myObjects.add(new Particle(location.x, location.y));
+           myObjects.add(new Particle(location.x, location.y));
+           myObjects.add(new Particle(location.x, location.y));
          }
        }
       i++;     
