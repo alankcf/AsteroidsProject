@@ -41,6 +41,7 @@ int immune;
 void setup() {
   size(800,800);
   imageMode(CENTER);
+  rectMode(CENTER);
   myShip = new Ship();
   //myUFO = new UFO();
   myObjects = new ArrayList<GameObject>();

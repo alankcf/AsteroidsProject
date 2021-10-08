@@ -4,7 +4,7 @@ class Ship extends GameObject {
   
   PVector direction;
   int shotTimer, threshold;
-  int flame;
+  //int flame;
   
   //Constructors
   Ship() {
@@ -14,8 +14,8 @@ class Ship extends GameObject {
    velocity = new PVector(0,0);
    direction = new PVector(0, -0.1);
    shotTimer = 0;
-   threshold = 20; //time between shots
-   flame = 255;
+   threshold = 10; //time between shots
+   //flame = 255;
    immune = 0;
   }
   
@@ -26,9 +26,9 @@ class Ship extends GameObject {
     rotate(direction.heading());
     noFill();
         
-    stroke(flame);
+    //stroke(flame);
  
-    triangle(-50, -17, -50, 17, -15, 0);
+    //triangle(-50, -17, -50, 17, -15, 0);
     if (immune >= 100) {
     stroke(white);
     } else if (immune < 100) {
@@ -55,10 +55,11 @@ class Ship extends GameObject {
     
     if (upkey) {
       velocity.add(direction);
-      flame = #FA7923;
-    } else {
-      flame = 0;
-    }
+      myObjects.add(new Fire());
+      myObjects.add(new Fire());
+      myObjects.add(new Fire());
+      //flame = #FA7923;
+    } 
     if (downkey)   velocity.sub(direction); //sub = subtract
     if (leftkey)   direction.rotate (-radians(5));
     if (rightkey)  direction.rotate (radians(5));
