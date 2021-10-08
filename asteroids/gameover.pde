@@ -1,8 +1,18 @@
 void gameover () {
-  background(blue);
   
-  //if lost (hit by bullet)
   
+  if (shiplives == 0) {
+    textSize(100);
+    text("GAMEOVER", width/2, height/3);
+  }
+  
+  if (count == 21) {
+    background(orange);
+    textSize(100);
+    text("YOU WON", width/2, height/3);
+    
+  }
+  count = 0;
   //if won (got UFO + asteroids)
   
 }

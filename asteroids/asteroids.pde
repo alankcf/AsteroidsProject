@@ -39,6 +39,9 @@ int shiplives;
 //immunity
 int immune;
 
+//counting of asteroids destroyed
+int count;
+
 void setup() {
   size(800,800);
   imageMode(CENTER);

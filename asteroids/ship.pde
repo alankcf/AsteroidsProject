@@ -10,6 +10,7 @@ class Ship extends GameObject {
   Ship() {
    shiplives = 3;
    lives = 1;
+   count = 0;
    location = new PVector(width/2, height/2);
    velocity = new PVector(0,0);
    direction = new PVector(0, -0.1);
@@ -82,8 +83,8 @@ class Ship extends GameObject {
             if (immune > 100) {
             immune = 0;
             shiplives = shiplives - 1;
-            location = new PVector(width/2, height/2);
-            direction = new PVector(0, -0.1);
+            //location = new PVector(width/2, height/2);
+            //direction = new PVector(0, -0.1);
             
             }
           }

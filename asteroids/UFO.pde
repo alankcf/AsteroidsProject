@@ -36,9 +36,10 @@ class UFO extends GameObject {
     if (velocity.mag() > 5) {
      velocity.setMag(5); 
     }
+   
     
     //how the UFO moves
-    UFOpath = int (random(0, 3));
+    UFOpath = int (random(0, 5));
     if (UFOpath == 0) {
       location.add(velocity);    
     } else if (UFOpath == 1) {  
@@ -47,8 +48,8 @@ class UFO extends GameObject {
       direction.rotate (-radians(5));
     } else if (UFOpath == 3) {  
       direction.rotate (radians(5));
-    } else if (UFOpath == 2 && shotTimer > threshold) {
-      myObjects.add(new UFO_Bullet(location.x, location.y));
+    } else if (UFOpath == 4 && shotTimer > threshold) {
+      myObjects.add(new UFO_Bullet(location.x, location.y, myShip.location.x - location.x, myShip.location.y - location.y));
       shotTimer = 0;
     }
     

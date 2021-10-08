@@ -8,10 +8,6 @@ class Particle extends GameObject {
     t = int(random(200, 255)); //255 = solid
     //location = myShip.location.copy();
     location = new PVector (x, y);
-    //nudge = myShip.direction.copy();
-    //nudge.rotate (PI);
-    //nudge.setMag(35);
-    //location.add(nudge);
     //velocity = myShip.direction.copy();
     velocity = new PVector (0,0.1);
     velocity.rotate(PI+random(-2, 2)); //180 degrees

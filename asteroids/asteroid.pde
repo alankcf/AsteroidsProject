@@ -2,6 +2,7 @@ class Asteroid extends GameObject {
 
 int t; 
 
+
   Asteroid() {
     lives = 1;
     location = new PVector (random(0, width), random(0, height));
@@ -46,7 +47,11 @@ int t;
         if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <=  size/2 + myObj.size) {
             myObj.lives = 0;
             lives = 0;
-            
+            count = count + 1;
+            print(count);
+            if (count == 21) {
+              mode = GAMEOVER;
+            }
             if (size > 25) {
             myObjects.add(new Asteroid(size/2, location.x, location.y));
             myObjects.add(new Asteroid(size/2, location.x, location.y));
