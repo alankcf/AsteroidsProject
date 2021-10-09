@@ -16,7 +16,6 @@ class Ship extends GameObject {
    direction = new PVector(0, -0.1);
    shotTimer = 0;
    threshold = 10; //time between shots
-   //flame = 255;
    immune = 0;
   }
   
@@ -68,10 +67,11 @@ class Ship extends GameObject {
       myObjects.add(new Bullet());
       shotTimer = 0;
     }
+    //speed limit
     if (upkey == false) velocity.setMag(velocity.mag()*0.99);
     
-    int i = 0;
     
+    int i = 0;    
     //while (immune > 20) {
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
@@ -83,8 +83,6 @@ class Ship extends GameObject {
             if (immune > 100) {
             immune = 0;
             shiplives = shiplives - 1;
-            //location = new PVector(width/2, height/2);
-            //direction = new PVector(0, -0.1);
             
             }
           }
@@ -95,5 +93,5 @@ class Ship extends GameObject {
     
    
     } 
-  //}
+  
 }

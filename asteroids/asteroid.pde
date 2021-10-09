@@ -38,10 +38,11 @@ int t;
   void act() {
     super.act();
     
+    
     int i = 0;
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
-      
+    
       //bullet
       if (myObj instanceof Bullet) {
         if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <=  size/2 + myObj.size) {

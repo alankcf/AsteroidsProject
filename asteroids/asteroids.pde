@@ -83,11 +83,14 @@ void draw() {
   int i = 0;
   while (i < myObjects.size() && mode == GAME) {
     GameObject myObj = myObjects.get(i);
+    
     myObj.show();
     myObj.act();
     
     if (myObj.lives == 0) {
      myObjects.remove(i); 
+    } else if (mode == GAMEOVER) {
+      myObjects.remove(i);
     } else {
       i++;
     }
