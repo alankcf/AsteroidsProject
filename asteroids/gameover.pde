@@ -4,6 +4,9 @@ void gameover () {
   if (shiplives == 0) {
     textSize(100);
     text("GAMEOVER", width/2, height/3);
+    textSize(20);
+    fill(black);
+    text("(you died)", width/2, height/2);
   }
   
   if (count == 21) {
@@ -21,15 +24,32 @@ void gameover () {
 
 void gameoverClicks () {
   mode = INTRO;
-  shiplives = 3;
+  
   if (count == 21) {
     count = 0;
+    shiplives = 3;
+    myObjects.add(myShip);
     myObjects.add(new Asteroid());
     myObjects.add(new Asteroid());
     myObjects.add(new Asteroid());
+    //myObjects.add(new Bullet());
+    myObjects.add(new Fire());
     myShip.location = new PVector(width/2, height/2);
     myShip.direction = new PVector(0, -0.1);
+    myShip.velocity = new PVector(0,0);
   }
-  
+  if (shiplives == 0) {
+    count = 0;
+    shiplives = 3;
+    myObjects.add(myShip);
+    myObjects.add(new Asteroid());
+    myObjects.add(new Asteroid());
+    myObjects.add(new Asteroid());
+    //myObjects.add(new Bullet());
+    myObjects.add(new Fire());
+    myShip.location = new PVector(width/2, height/2);
+    myShip.direction = new PVector(0, -0.1);
+    myShip.velocity = new PVector(0,0);
+  }
   
 }

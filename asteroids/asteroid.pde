@@ -19,14 +19,14 @@ int t;
     size = s;
   }
   
-  Asteroid(int s, float x, float y, float t) {
-    lives = 1;
-    location = new PVector (x, y);
-    velocity = new PVector (0, 1);
-    velocity.rotate (random(0, TWO_PI));
-    size = s;
-    t = 255;
-  }
+  //Asteroid(int s, float x, float y, float t) {
+  //  lives = 1;
+  //  location = new PVector (x, y);
+  //  velocity = new PVector (0, 1);
+  //  velocity.rotate (random(0, TWO_PI));
+  //  size = s;
+  //  t = 255;
+  //}
   
   void show () {
    noFill();
@@ -42,7 +42,7 @@ int t;
     int i = 0;
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
-    
+      
       //bullet
       if (myObj instanceof Bullet) {
         if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <=  size/2 + myObj.size) {

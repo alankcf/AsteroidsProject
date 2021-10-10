@@ -89,8 +89,6 @@ void setup() {
   
   //teleport timer
   teleport = 0;
-  
-  
 }
 
 void draw() {
@@ -106,8 +104,10 @@ void draw() {
     myObj.act();
     
     if (myObj.lives == 0) {
-     myObjects.remove(i); 
-    } else if (mode == GAMEOVER) {
+      myObjects.remove(i); 
+    } else if (shiplives == 0) {
+      myObjects.remove(i);
+    } else if (count == 21) {
       myObjects.remove(i);
     } else {
       i++;

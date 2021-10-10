@@ -2,7 +2,7 @@ void game () {
   
   textSize(25);
   fill(yellow);
-  text("Lives:" + shiplives, 100, 100);
+  text("Lives:" + shiplives, 130, 100);
   
   if (shiplives == 0) {
     mode = GAMEOVER;
