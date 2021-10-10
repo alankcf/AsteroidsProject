@@ -1,4 +1,4 @@
-boolean upkey, downkey, leftkey, rightkey, spacekey;
+boolean upkey, downkey, leftkey, rightkey, spacekey, enterkey;
 Ship myShip;
 //UFO myUFO;
 ArrayList<GameObject> myObjects;
@@ -30,6 +30,9 @@ PImage [] gif;
 int numberOfFrames;
 int f;
 
+//font
+PFont font;
+
 //UFO random path
 int UFOpath;
 
@@ -41,6 +44,12 @@ int immune;
 
 //counting of asteroids destroyed
 int count;
+
+//generate UFO timer
+int generate;
+
+//teleport
+float teleport;
 
 void setup() {
   size(800,800);
@@ -72,6 +81,15 @@ void setup() {
     i++;
     }
  
+ //font
+  font = createFont("NotoSansMono-Light.ttf", 2);
+  
+  //UFO generator timer
+  generate = 0;
+  
+  //teleport timer
+  teleport = 0;
+  
   
 }
 
@@ -93,13 +111,10 @@ void draw() {
       myObjects.remove(i);
     } else {
       i++;
-    }
-    
-    
+    }    
   }
   
-  
-  
+   //modes
    if (mode == INTRO) {
     intro();
   } else if (mode == GAME) {
@@ -120,6 +135,7 @@ void keyPressed() {
   if (keyCode == DOWN)  downkey  = true;
   if (keyCode == LEFT)  leftkey  = true;
   if (keyCode == RIGHT) rightkey = true;
+  if (keyCode == ENTER) enterkey = true;
   if (key == ' ')       spacekey = true;
   
 }
@@ -129,7 +145,7 @@ void keyReleased() {
   if (keyCode == DOWN)  downkey  = false;
   if (keyCode == LEFT)  leftkey  = false;
   if (keyCode == RIGHT) rightkey = false;
-  if (key == ' ')       spacekey = false;
-  
+  if (keyCode == ENTER) enterkey = false;
+  if (key == ' ')       spacekey = false;  
 }
   

@@ -7,7 +7,7 @@ void intro () {
   if (f == numberOfFrames) f = 0;
   
   //font
-  
+  textFont(font);
   fill(darkyellow);
   textSize(100);
   textAlign(CENTER);

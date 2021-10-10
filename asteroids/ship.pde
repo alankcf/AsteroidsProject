@@ -33,6 +33,7 @@ class Ship extends GameObject {
     stroke(white);
     } else if (immune < 100) {
       stroke(yellow);
+      fill(yellow);
     }
     triangle(-25, -12.5, -25, 12.5, 25, 0);
     //spaceship
@@ -66,6 +67,10 @@ class Ship extends GameObject {
     if (spacekey && shotTimer > threshold) {
       myObjects.add(new Bullet());
       shotTimer = 0;
+    }
+    if (enterkey && teleport == 200) {
+      //location = new PVector(width/2, height/2);
+      teleport = 0;
     }
     //speed limit
     if (upkey == false) velocity.setMag(velocity.mag()*0.99);

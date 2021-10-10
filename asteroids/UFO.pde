@@ -6,22 +6,23 @@ class UFO extends GameObject {
   int shotTimer, threshold;
   int flame;
   int loc;
-  int generate;
+  
   int time;
   
   //Constructors
   UFO() {
    lives = 1;
-   loc = int (random(1, 3));
-   generate = 0;
-   if (loc == 1) location = new PVector(0, random(-50, height-50)); // y random
-   else location = new PVector(random(-50, width-50), 0);  // x random
-   velocity = new PVector(0, 1);
+   loc = int (random(1, 5));
+   if (loc == 1) location = new PVector(-50, random(-50, height-50)); // y random
+   else if (loc == 2) location = new PVector(height + 50, random(-50, height-50)); // y random
+   else if (loc == 3) location = new PVector(random(-50, width-50), -50);  // x random
+   else if (loc == 4) location = new PVector(random(-50, width-50), width-50);  // x random
+   velocity = new PVector(2, 1);
    direction = new PVector(0, -0.1);
    shotTimer = 0;
    threshold = 60; //time between shots
    size = 50;
-   time = 500; //time between UFO
+   //time = 500; //time between UFO
   }
   
  
@@ -39,20 +40,17 @@ class UFO extends GameObject {
     super.act();
     
     shotTimer++;
-    generate++;
     
     if (velocity.mag() > 5) {
      velocity.setMag(5); 
     }    
     
-    //how the UFO moves
-    
+    //how the UFO moves    
     UFOpath = int (random(0, 5));
     if (UFOpath == 0) {
       location.add(velocity);          
     } else if (UFOpath == 1) {  
-      //location.add(velocity);    //sub = subtract
-      location.x = location.x + 3;
+      location.sub(velocity);    //sub = subtract
     } else if (UFOpath == 2) {  
       direction.rotate (-radians(5));
     } else if (UFOpath == 3) {  
@@ -63,7 +61,6 @@ class UFO extends GameObject {
     
     }
     
-    
     int i = 0;
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
@@ -73,41 +70,31 @@ class UFO extends GameObject {
             myObj.lives = 0;
             lives = 0;
             generate = 0;  
-            shiplives ++;
+            //shiplives ++;
             myObjects.add(new Particle(location.x, location.y));   
-            myObjects.add (new UFO());
+            //myObjects.add (new UFO());
           }         
                           
         }
       i++;
     }
     
-    //come back
-    //if (myUFO.location.y < -50)         myUFO.location.y = height + 50;
-    //if (myUFO.location.y > height + 50) myUFO.location.y = -50;
-    //if (myUFO.location.x < -50)         myUFO.location.x = width + 50;
-    //if (myUFO.location.x > height + 50) myUFO.location.x = -50;
-    
     //come back new
-    if (location.y < -50) {
-      lives = 0;
-      myObjects.add (new UFO());
-      //println("1");
-    }
-    if (location.y > height + 50) {
-      lives = 0;
-      myObjects.add (new UFO());
-      //println("1");
-    }
-    if (location.x < -50)         {
-      lives = 0;
-      myObjects.add (new UFO());
-      //println("1");
-    }
-    if (location.x > height + 50) {      
-      lives = 0;
-      myObjects.add (new UFO());
-      //println("1");
-    }
+    //if (location.y < -50) {
+    //  lives = 0;
+    //  myObjects.add (new UFO());
+    //}
+    //if (location.y > height + 50) {
+    //  lives = 0;
+    //  myObjects.add (new UFO());
+    //}
+    //if (location.x < -50)         {
+    //  lives = 0;
+    //  myObjects.add (new UFO());
+    //}
+    //if (location.x > height + 50) {      
+    //  lives = 0;
+    //  myObjects.add (new UFO());
+    //}
   }
 }
