@@ -30,6 +30,9 @@ PImage [] gif;
 int numberOfFrames;
 int f;
 
+//UFO pic
+PImage UFO;
+
 //font
 PFont font;
 
@@ -67,6 +70,7 @@ void setup() {
   //mode
   mode = INTRO; 
   
+  UFO = loadImage("kpl_asteroids_6.gif");
   //gif
   numberOfFrames = 40;
   gif = new PImage [numberOfFrames];

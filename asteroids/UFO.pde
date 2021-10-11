@@ -21,7 +21,7 @@ class UFO extends GameObject {
    direction = new PVector(0, -0.1);
    shotTimer = 0;
    threshold = 60; //time between shots
-   size = 50;
+   size = 70;
    //time = 500; //time between UFO
   }
   
@@ -34,7 +34,7 @@ class UFO extends GameObject {
     fill(0);
     stroke(red);
     //rect(location.x, location.y, size, size); 
-    //image("kpl_asteroids_6.gif", location.x, location.y, size, size);
+    image(UFO, location.x, location.y, size, size);
     
   }
   
