@@ -30,8 +30,10 @@ void game () {
    teleport = 200;
    fill(green);
    textSize(20);
-   text("Teleport READY", 200, 700);
-}
+   text("Teleport READY", 200, 695);
+   textSize(10);
+   text("Click ENTER", 200, 710);
+  }
 }
 
 void gameClicks() {

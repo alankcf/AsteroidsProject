@@ -4,6 +4,7 @@ class Ship extends GameObject {
   
   PVector direction;
   int shotTimer, threshold;
+  int a, b;
   //int flame;
   
   //Constructors
@@ -69,8 +70,10 @@ class Ship extends GameObject {
       shotTimer = 0;
     }
     if (enterkey && teleport == 200) {
-      //location = new PVector(width/2, height/2);
+      if (dist(myShip.location.x, myShip.location.y, location.x, location.y) <=  200) {
+      location = new PVector(random(0, width), random(0, height));
       teleport = 0;
+      }
     }
     //speed limit
     if (upkey == false) velocity.setMag(velocity.mag()*0.99);

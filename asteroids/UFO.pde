@@ -33,7 +33,9 @@ class UFO extends GameObject {
     //spaceship
     fill(0);
     stroke(red);
-    rect(location.x, location.y, size, size);      
+    //rect(location.x, location.y, size, size); 
+    //image("kpl_asteroids_6.gif", location.x, location.y, size, size);
+    
   }
   
   void act() {
