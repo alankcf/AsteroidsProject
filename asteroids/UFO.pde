@@ -82,21 +82,21 @@ class UFO extends GameObject {
     }
     
     //come back new
-    //if (location.y < -50) {
-    //  lives = 0;
-    //  myObjects.add (new UFO());
-    //}
-    //if (location.y > height + 50) {
-    //  lives = 0;
-    //  myObjects.add (new UFO());
-    //}
-    //if (location.x < -50)         {
-    //  lives = 0;
-    //  myObjects.add (new UFO());
-    //}
-    //if (location.x > height + 50) {      
-    //  lives = 0;
-    //  myObjects.add (new UFO());
-    //}
+    if (location.y < -50) {
+      lives = 0;
+      //myObjects.add (new UFO());
+    }
+    if (location.y > height + 50) {
+      lives = 0;
+      //myObjects.add (new UFO());
+    }
+    if (location.x < -50)         {
+      lives = 0;
+      //myObjects.add (new UFO());
+    }
+    if (location.x > height + 50) {      
+      lives = 0;
+      //myObjects.add (new UFO());
+    }
   }
 }

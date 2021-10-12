@@ -36,6 +36,9 @@ class Ship extends GameObject {
     if (immune >= 100) {
     stroke(white);
     } else if (immune < 100) {
+      //fill(black);
+      //stroke(white);
+      //ellipse(location.x,location.y, 75, 75);
       stroke(yellow);
       fill(yellow);
     }

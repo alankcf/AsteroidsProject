@@ -2,7 +2,6 @@ class Asteroid extends GameObject {
 
 int t; 
 
-
   Asteroid() {
     lives = 1;
     location = new PVector (random(0, width), random(0, height));

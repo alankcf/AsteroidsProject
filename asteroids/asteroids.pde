@@ -4,8 +4,8 @@
 
 //Stuff to Do
 // 1. Does teleport work?
-// 2. Why velocity faster only after a win, but not a loss?
-// 3. Make more visually pleasing
+// 2. Make more visually pleasing
+// 3. Glitchy gif - exgif - output images in PNG format
 
 boolean upkey, downkey, leftkey, rightkey, spacekey, enterkey;
 Ship myShip;
@@ -96,7 +96,7 @@ void setup() {
     i++;
     }
  
- //font
+  //font
   font = createFont("NotoSansMono-Light.ttf", 2);
   
   //UFO generator timer
@@ -140,6 +140,7 @@ void draw() {
     println("Error: mode = " + mode);
   }
   
+  //modes clarity
   if (mode != INTRO && mode != GAMEOVER) {
     mode = GAME;
   }

@@ -28,6 +28,9 @@ void gameoverClicks () {
   if (count == 21) {
     count = 0;
     shiplives = 3;
+    myShip.lives = 0;
+    myObjects = new ArrayList<GameObject>();
+    myShip = new Ship();
     myObjects.add(myShip);
     myObjects.add(new Asteroid());
     myObjects.add(new Asteroid());
@@ -41,6 +44,9 @@ void gameoverClicks () {
   if (shiplives == 0) {
     count = 0;
     shiplives = 3;
+    myShip.lives = 0;
+    myObjects = new ArrayList<GameObject>();
+    myShip = new Ship();
     myObjects.add(myShip);
     myObjects.add(new Asteroid());
     myObjects.add(new Asteroid());
