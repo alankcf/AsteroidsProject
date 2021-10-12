@@ -1,3 +1,12 @@
+//Alan Fung
+//Asteroids Project
+//October 2021
+
+//Stuff to Do
+// 1. Does teleport work?
+// 2. Why velocity faster only after a win, but not a loss?
+// 3. Make more visually pleasing
+
 boolean upkey, downkey, leftkey, rightkey, spacekey, enterkey;
 Ship myShip;
 //UFO myUFO;
