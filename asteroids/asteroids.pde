@@ -70,7 +70,9 @@ void setup() {
   //mode
   mode = INTRO; 
   
-  UFO = loadImage("kpl_asteroids_6.gif");
+  //UFO image
+  UFO = loadImage("alienship.png");
+  
   //gif
   numberOfFrames = 40;
   gif = new PImage [numberOfFrames];
