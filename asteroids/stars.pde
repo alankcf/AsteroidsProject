@@ -11,5 +11,5 @@ void show() {
   fill(random(234, 255));
   square(location.x, location.y, size);
   }
- // YOU HAVE TO INTIALIZE IT IN asteroids
+ // YOU HAVE TO INTIALIZE IT 
 }
