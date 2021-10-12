@@ -18,8 +18,9 @@ class UFO_Bullet extends GameObject {
     
   void show() {
     stroke(red);
-    noFill();
-    ellipse(location.x, location.y, size, size);
+    fill(red);
+    rect(location.x, location.y, size, size);
+    //ellipse(location.x, location.y, size, size);
   }
   
   void act() {
