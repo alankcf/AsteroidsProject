@@ -12,12 +12,14 @@ class Particle extends GameObject {
     velocity = new PVector (0,0.1);
     velocity.rotate(PI+random(-2, 2)); //180 degrees
     velocity.setMag(1); //random number?
+    //fill(c, t);
   }
   
   //override
   void show () {
     noStroke();
     fill(#CECDCC, t);
+    //fill(c, t);
     //circle(myObj.location.x, location.y, size);
     rect(location.x, location.y, size, size);
     //println("2");

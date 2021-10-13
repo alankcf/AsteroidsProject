@@ -66,8 +66,12 @@ class Ship extends GameObject {
       myObjects.add(new Fire());
       myObjects.add(new Fire());
       myObjects.add(new Fire());
+      myObjects.add(new Fire());
+      myObjects.add(new Fire());
+      myObjects.add(new Fire());
       //flame = #FA7923;
     } 
+    
     if (downkey)   velocity.sub(direction); //sub = subtract
     if (leftkey)   direction.rotate (-radians(5));
     if (rightkey)  direction.rotate (radians(5));
@@ -92,9 +96,9 @@ class Ship extends GameObject {
         teleport = 0;
       }
     }
-    //speed limit
-    if (upkey == false) velocity.setMag(velocity.mag()*0.99);
     
+    //speed limit
+    if (upkey == false) velocity.setMag(velocity.mag()*0.99);    
     
     int i = 0;    
     //while (immune > 20) {
@@ -107,12 +111,10 @@ class Ship extends GameObject {
             //myObj.lives = 0;
             if (immune > 100) {
             immune = 0;
-            shiplives = shiplives - 1;
-            
+            shiplives = shiplives - 1;          
             }
           }
-        }
-      
+        }     
       i++;     
     }
     

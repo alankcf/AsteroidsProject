@@ -31,7 +31,8 @@ int t;
    noFill();
    fill(grey);
    stroke(255);
-   ellipse(location.x, location.y, size, size);   
+   //ellipse(location.x, location.y, size, size);
+   image(asteroid, location.x, location.y, size, size);
   }
   
   void act() {
@@ -57,11 +58,11 @@ int t;
             myObjects.add(new Asteroid(size/2, location.x, location.y));
             }
             myObjects.add(new Particle(location.x, location.y));
+             myObjects.add(new Particle(location.x, location.y));;
+             myObjects.add(new Particle(location.x, location.y));
             myObjects.add(new Particle(location.x, location.y));
-            myObjects.add(new Particle(location.x, location.y));
-            myObjects.add(new Particle(location.x, location.y));
-            myObjects.add(new Particle(location.x, location.y));
-            myObjects.add(new Particle(location.x, location.y));
+             myObjects.add(new Particle(location.x, location.y));
+              myObjects.add(new Particle(location.x, location.y));
           }
         }
        if (myObj instanceof Ship) {
@@ -77,9 +78,10 @@ int t;
             myObjects.add(new Asteroid(size/2, location.x, location.y));
             }
            myObjects.add(new Particle(location.x, location.y));
-           myObjects.add(new Particle(location.x, location.y));
-           myObjects.add(new Particle(location.x, location.y));
-           myObjects.add(new Particle(location.x, location.y));
+            myObjects.add(new Particle(location.x, location.y));
+            myObjects.add(new Particle(location.x, location.y));
+             myObjects.add(new Particle(location.x, location.y));
+              myObjects.add(new Particle(location.x, location.y));
          }
        }
       i++;     

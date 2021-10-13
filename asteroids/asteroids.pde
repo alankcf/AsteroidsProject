@@ -42,6 +42,9 @@ int f;
 //UFO pic
 PImage UFO;
 
+//Asteroid pic
+PImage asteroid;
+
 //font
 PFont font;
 
@@ -81,6 +84,9 @@ void setup() {
   
   //UFO image
   UFO = loadImage("alienship.png");
+  
+  //asteroid image
+  asteroid = loadImage("asteroidpic.png");
   
   //gif
   numberOfFrames = 40;
