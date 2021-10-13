@@ -5,7 +5,6 @@
 //Stuff to Do
 // 1. Does teleport work?
 // 2. Make more visually pleasing
-// 3. Glitchy gif - exgif - output images in PNG format
 
 boolean upkey, downkey, leftkey, rightkey, spacekey, enterkey;
 Ship myShip;
