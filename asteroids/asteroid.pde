@@ -38,14 +38,14 @@ int t;
   void act() {
     super.act();
     
-    a = int (random(50, height-50));
-    b = int (random(50, width-50));
-    if (a >= location.x - 200 && a >= location.y - 200 || a >= location.x + 200 && a >= location.y + 200) {
-      moves = true;
-    } else {
-      a = int (random(50, height-50));
-      b = int (random(50, width-50));
-    }
+    //a = int (random(50, height-50));
+    //b = int (random(50, width-50));
+    //if (a >= location.x - 200 && a >= location.y - 200 || a >= location.x + 200 && a >= location.y + 200) {
+    //  moves = true;
+    //} else {
+    //  a = int (random(50, height-50));
+    //  b = int (random(50, width-50));
+    //}
     int i = 0;
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);

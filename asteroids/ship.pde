@@ -18,8 +18,8 @@ class Ship extends GameObject {
    shotTimer = 0;
    threshold = 10; //time between shots
    immune = 0;
-   //a = int (random(0, width));
-   //b = int (random(0, height));
+   a = int (random(0, width));
+   b = int (random(0, height));
   }
   
   //Behavior Functions
@@ -44,6 +44,7 @@ class Ship extends GameObject {
     triangle(-25, -12.5, -25, 12.5, 25, 0);
     //spaceship
     popMatrix();
+    
   }
   
   void act() {
@@ -78,15 +79,32 @@ class Ship extends GameObject {
       myObjects.add(new Bullet());
       shotTimer = 0;
     }
-        
+    
     if (enterkey && teleport == 200) {
+    int c = 0;
+    while (a < myObjects.size()) {
+      GameObject myObj = myObjects.get(c);
+      
+     
+        if (myObj instanceof Asteroid) {
+            if (dist(a, b, myObj.location.x, myObj.location.y) >= 200) {
+              location = new PVector(a, b);              
+            } else while (dist(a, b, myObj.location.x, myObj.location.y) < 200) {
+              a = int (random(0, width));
+              b = int (random(0, height));
+            }
+            
+            
+    
+      }
       //if (dist(myShip.location.x, myShip.location.y, location.x, location.y) <=  400) {
       //if (a - location.x > 200 && b - location.y > 200) {
-      if (moves == true) {
-        location = new PVector(a, b);
-        teleport = 0;
-        a = int (random(50, height-50));
-        b = int (random(50, width-50));
+      //if (moves == true) {
+      //  location = new PVector(a, b);
+      //  teleport = 0;
+      //  a = int (random(50, height-50));
+      //  b = int (random(50, width-50));
+      
       }
     }
     
