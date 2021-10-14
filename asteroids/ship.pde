@@ -5,7 +5,6 @@ class Ship extends GameObject {
   PVector direction;
   int shotTimer, threshold;
   int a, b;
-  boolean moves;
   //int flame;
   
   //Constructors
@@ -79,21 +78,15 @@ class Ship extends GameObject {
       myObjects.add(new Bullet());
       shotTimer = 0;
     }
-    
-    a = int (random(0, height));
-    b = int (random(0, width));
-    if (a >= location.x - 200 && a >= location.y - 200) {
-      moves = true;
-    } else {
-      a = int (random(0, height));
-      b = int (random(0, width));
-    }
+        
     if (enterkey && teleport == 200) {
       //if (dist(myShip.location.x, myShip.location.y, location.x, location.y) <=  400) {
       //if (a - location.x > 200 && b - location.y > 200) {
       if (moves == true) {
         location = new PVector(a, b);
         teleport = 0;
+        a = int (random(50, height-50));
+        b = int (random(50, width-50));
       }
     }
     

@@ -38,7 +38,14 @@ int t;
   void act() {
     super.act();
     
-    
+    a = int (random(50, height-50));
+    b = int (random(50, width-50));
+    if (a >= location.x - 200 && a >= location.y - 200 || a >= location.x + 200 && a >= location.y + 200) {
+      moves = true;
+    } else {
+      a = int (random(50, height-50));
+      b = int (random(50, width-50));
+    }
     int i = 0;
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
@@ -68,20 +75,20 @@ int t;
        if (myObj instanceof Ship) {
          if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <=  size/2 + myObj.size) {
            if (immune > 100) {
-           shiplives--;
-           immune = 0;
-           }
-           //myObj.lives = 0;
-           lives = 0;
-           if (size > 25) {
-            myObjects.add(new Asteroid(size/2, location.x, location.y));
-            myObjects.add(new Asteroid(size/2, location.x, location.y));
-            }
-           myObjects.add(new Particle(location.x, location.y));
-            myObjects.add(new Particle(location.x, location.y));
-            myObjects.add(new Particle(location.x, location.y));
+             shiplives--;
+             immune = 0;           
+             //myObj.lives = 0;
+             lives = 0;
+             if (size > 25) {
+                myObjects.add(new Asteroid(size/2, location.x, location.y));
+                myObjects.add(new Asteroid(size/2, location.x, location.y));
+              }
              myObjects.add(new Particle(location.x, location.y));
-              myObjects.add(new Particle(location.x, location.y));
+             myObjects.add(new Particle(location.x, location.y));
+             myObjects.add(new Particle(location.x, location.y));
+             myObjects.add(new Particle(location.x, location.y));
+             myObjects.add(new Particle(location.x, location.y));
+            }
          }
        }
       i++;     

@@ -26,12 +26,14 @@ color darkblue = #272D4D;
 color purple = #6E06B9;
 color darkred = #F25D5D;
 color grey = #48423F;
+color mango = #FF6A5A;
 
 //mode variables
 int mode; 
 final int INTRO = 0;
 final int GAME = 1;
-final int GAMEOVER = 2;
+final int PAUSE = 2;
+final int GAMEOVER = 3;
 
 //gif
 PImage [] gif;
@@ -64,6 +66,9 @@ int generate;
 
 //teleport
 float teleport;
+
+boolean moves;
+int a, b;
 
 void setup() {
   size(800,800);
@@ -112,10 +117,12 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  //background(0);
   //myShip.show();
   //myShip.act();
-  
+  if (mode == GAME) {
+    background(0);
+  }
   int i = 0;
   while (i < myObjects.size() && mode == GAME) {
     GameObject myObj = myObjects.get(i);
@@ -139,6 +146,8 @@ void draw() {
     intro();
   } else if (mode == GAME) {
     game();
+  } else if (mode == PAUSE) {
+    pause();
   } else if (mode == GAMEOVER) {
     gameover();
   } else {
@@ -146,9 +155,9 @@ void draw() {
   }
   
   //modes clarity
-  if (mode != INTRO && mode != GAMEOVER) {
-    mode = GAME;
-  }
+  //if (mode != INTRO && mode != GAMEOVER) {
+  //  mode = GAME;
+  //}
 }
 
 void keyPressed() {
