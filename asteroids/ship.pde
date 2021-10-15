@@ -93,11 +93,6 @@ class Ship extends GameObject {
           }  else if (dist(a, b, myObj.location.x, myObj.location.y) >= 200) {
             moves = true;   
           }
-            //} else while (dist(a, b, myObj.location.x, myObj.location.y) < 200) {
-            //  location = new PVector(a, b);     
-            //  a = int (random(0, width));
-            //  b = int (random(0, height));
-            //}
             
           if (moves == true) {
             location = new PVector(a, b);
