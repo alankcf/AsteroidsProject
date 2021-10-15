@@ -4,7 +4,7 @@ class Ship extends GameObject {
   
   PVector direction;
   int shotTimer, threshold;
-  int a, b;
+  //int a, b;
   //int flame;
   
   //Constructors
@@ -79,22 +79,35 @@ class Ship extends GameObject {
       myObjects.add(new Bullet());
       shotTimer = 0;
     }
-    
-    if (enterkey && teleport == 200) {
-    int c = 0;
-    while (a < myObjects.size()) {
-      GameObject myObj = myObjects.get(c);
+    //print(teleport);
+    if (enterkey && teleport >= 200) {
       
-     
+      
+      int c = 0;
+      while (c < myObjects.size()) {
+        GameObject myObj = myObjects.get(c);
+           
         if (myObj instanceof Asteroid) {
-            if (dist(a, b, myObj.location.x, myObj.location.y) >= 200) {
-              location = new PVector(a, b);              
-            } else while (dist(a, b, myObj.location.x, myObj.location.y) < 200) {
-              a = int (random(0, width));
-              b = int (random(0, height));
-            }
+          if ((dist(a, b, myObj.location.x, myObj.location.y) < 200)) {
+            moves = false;
+          }  else if (dist(a, b, myObj.location.x, myObj.location.y) >= 200) {
+            moves = true;   
+          }
+            //} else while (dist(a, b, myObj.location.x, myObj.location.y) < 200) {
+            //  location = new PVector(a, b);     
+            //  a = int (random(0, width));
+            //  b = int (random(0, height));
+            //}
             
-            
+          if (moves == true) {
+            location = new PVector(a, b);
+            a = int (random(0, width));
+            b = int (random(0, height));
+          } else if (moves == false) {
+            a = int (random(0, width));
+            b = int (random(0, height));
+          }
+          
     
       }
       //if (dist(myShip.location.x, myShip.location.y, location.x, location.y) <=  400) {
@@ -104,8 +117,10 @@ class Ship extends GameObject {
       //  teleport = 0;
       //  a = int (random(50, height-50));
       //  b = int (random(50, width-50));
-      
+         c++;
+         
       }
+      teleport = 0;
     }
     
     //speed limit
