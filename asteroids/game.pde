@@ -8,7 +8,7 @@ void game () {
     mode = GAMEOVER;
   }
   generate++;
-  println(generate);
+  //println(generate);
     if (generate >= 700) {
       myObjects.add (new UFO());
       generate = 0;

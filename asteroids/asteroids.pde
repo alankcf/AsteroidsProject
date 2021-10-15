@@ -3,7 +3,7 @@
 //October 2021
 
 //Stuff to Do
-// 1. Fix Code Format - and turn off print
+// 1. Fix Code Format 
 
 boolean upkey, downkey, leftkey, rightkey, spacekey, enterkey;
 Ship myShip;
