@@ -3,8 +3,7 @@
 //October 2021
 
 //Stuff to Do
-// 1. Does teleport work?
-// 2. Make more visually pleasing
+// 1. Fix Code Format - and turn off print
 
 boolean upkey, downkey, leftkey, rightkey, spacekey, enterkey;
 Ship myShip;
