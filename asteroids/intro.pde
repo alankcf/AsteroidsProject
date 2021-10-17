@@ -1,5 +1,4 @@
 void intro () {
-  //background(blue);
   
   image(gif[f], 400, 400, width, height);
   f = f + 1;
@@ -17,6 +16,5 @@ void intro () {
 }
 
 void introClicks () {
- mode = GAME; 
- 
+   mode = GAME; 
 }

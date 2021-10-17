@@ -7,12 +7,12 @@ void game () {
   if (shiplives == 0) {
     mode = GAMEOVER;
   }
+  
   generate++;
-  //println(generate);
-    if (generate >= 700) {
-      myObjects.add (new UFO());
-      generate = 0;
-    } 
+  if (generate >= 700) {
+    myObjects.add (new UFO());
+    generate = 0;
+   } 
    
    //pause indicator
    fill(darkyellow);
@@ -32,7 +32,8 @@ void game () {
    stroke(darkblue);
    rect(100, 670, teleport, 50);   
    
-    if (teleport < 200) {
+   //teleport cooldown
+   if (teleport < 200) {
      teleport = teleport + 1; //0.1;
    } else {
    teleport = 200;
@@ -46,6 +47,8 @@ void game () {
 
 void gameClicks() {
   mode = PAUSE;
+  
+  //pause indicator
   fill(black);
   stroke(black);
   strokeWeight(2);

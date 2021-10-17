@@ -18,11 +18,12 @@ void gameover () {
 }
 
 void gameoverClicks () {
-  mode = INTRO;
-  
-  //  if (count == 21) {
+    
+    //reset
+    mode = INTRO;  
     count = 0;
     shiplives = 3;
+    teleport = 0;
     myShip.lives = 0;
     myObjects = new ArrayList<GameObject>();
     myShip = new Ship();
@@ -34,23 +35,5 @@ void gameoverClicks () {
     myObjects.add(new Fire());
     myShip.location = new PVector(width/2, height/2);
     myShip.direction = new PVector(0, -0.1);
-    myShip.velocity = new PVector(0,0);
-  //}
-  //if (shiplives == 0) {
-  //  count = 0;
-  //  shiplives = 3;
-  //  myShip.lives = 0;
-  //  myObjects = new ArrayList<GameObject>();
-  //  myShip = new Ship();
-  //  myObjects.add(myShip);
-  //  myObjects.add(new Asteroid());
-  //  myObjects.add(new Asteroid());
-  //  myObjects.add(new Asteroid());
-  //  //myObjects.add(new Bullet());
-  //  myObjects.add(new Fire());
-  //  myShip.location = new PVector(width/2, height/2);
-  //  myShip.direction = new PVector(0, -0.1);
-  //  myShip.velocity = new PVector(0,0);
-  //}
-  
+    myShip.velocity = new PVector(0,0); 
 }

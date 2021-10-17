@@ -12,28 +12,20 @@ class UFO extends GameObject {
   //Constructors
   UFO() {
     lives = 1;
-    loc = int (random(1, 5)); //I did 1 to 3 on purpose
+    loc = int (random(1, 5)); 
     if (loc == 1) {
-      location = new PVector(-50, random(-50, height-50)); // left
+      location = new PVector(-50, random(0, height)); // left
       velocity = new PVector(2, 1);
-      }
-    else if (loc == 2) {
-      location = new PVector(height + 50, random(-50, height-50)); // right
+    } else if (loc == 2) {
+      location = new PVector(width + 50, random(0, height)); // right
       velocity = new PVector(-2, -1);
-      }
-    else if (loc == 3) {
-      location = new PVector(random(-50, width-50), -50);  // top
+    } else if (loc == 3) {
+      location = new PVector(random(0, width), -50);  // top
       velocity = new PVector(1, 2);
-      }
-    else if (loc == 4) {
-      location = new PVector(random(-50, width-50), width-50);  // bottom
+    } else if (loc == 4) {
+      location = new PVector(random(0, width), height + 50);  // bottom
       velocity = new PVector(-1, -2);
-      }
-    //vel = int (random(1, 5));
-    //if (loc == 1) velocity = new PVector(2, 1);
-    //else if (loc == 2) velocity = new PVector(1, 2);
-    //else if (loc == 3) velocity = new PVector(3, 2);
-    //else if (loc == 4) velocity = new PVector(2, 3);
+    }
     direction = new PVector(0, -0.1);
     shotTimer = 0;
     threshold = 60; //time between shots

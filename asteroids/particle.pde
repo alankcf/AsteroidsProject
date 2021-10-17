@@ -4,25 +4,19 @@ class Particle extends GameObject {
   
   Particle(float x, float y) {
     lives = 1;
-    size = int (random(5, 10)); //try random
+    size = int (random(5, 10)); 
     t = int(random(200, 255)); //255 = solid
-    //location = myShip.location.copy();
     location = new PVector (x, y);
-    //velocity = myShip.direction.copy();
     velocity = new PVector (0,0.1);
     velocity.rotate(PI+random(-2, 2)); //180 degrees
-    velocity.setMag(1); //random number?
-    //fill(c, t);
+    velocity.setMag(1); 
   }
   
   //override
   void show () {
     noStroke();
     fill(#CECDCC, t);
-    //fill(c, t);
-    //circle(myObj.location.x, location.y, size);
     rect(location.x, location.y, size, size);
-    //println("2");
   }
   
   void act () {

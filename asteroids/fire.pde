@@ -1,8 +1,8 @@
 class Fire extends GameObject {
-  
+
   int t; //transparancy
   PVector nudge;  
-  
+
   Fire() {
     lives = 1;
     size = int (random(5, 10)); //try random
@@ -14,22 +14,19 @@ class Fire extends GameObject {
     location.add(nudge);
     velocity = myShip.direction.copy();
     velocity.rotate(PI+random(-0.3, 0.3)); //180 degrees
-    velocity.setMag(5); //random number?
-    //diverse = int (random(3, 96));
+    velocity.setMag(random(4, 7)); //random number?
   }
-  
-  //override
+
   void show () {
     noStroke();
     fill(orange, t);
     circle(location.x, location.y, size);
-    //square(location.x, location.y, size);
   }
-  
+
   void act () {
     super.act();
     t = t - 10;
-    
+
     if (t <= 0) lives = 0;
   }
 }

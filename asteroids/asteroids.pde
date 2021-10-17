@@ -2,12 +2,8 @@
 //Asteroids Project
 //October 2021
 
-//Stuff to Do
-// 1. Fix Code Format 
-
 boolean upkey, downkey, leftkey, rightkey, spacekey, enterkey;
 Ship myShip;
-//UFO myUFO;
 ArrayList<GameObject> myObjects;
 
 //colors
@@ -70,78 +66,75 @@ boolean moves;
 int a, b;
 
 void setup() {
-  size(800,800);
+  size(800, 800);
   imageMode(CENTER);
   rectMode(CENTER);
   myShip = new Ship();
-  //myUFO = new UFO();
   myObjects = new ArrayList<GameObject>();
   myObjects.add(myShip);
   myObjects.add(new Asteroid());
   myObjects.add(new Asteroid());
   myObjects.add(new Asteroid());
   myObjects.add(new UFO());
-  
+
   //mode
   mode = INTRO; 
-  
+
   //UFO image
   UFO = loadImage("alienship.png");
-  
+
   //asteroid image
   asteroid = loadImage("asteroidpic.png");
-  
+
   //gif
   numberOfFrames = 40;
   gif = new PImage [numberOfFrames];
-  
+
   int i = 0;
   while (i < numberOfFrames) {
     if (i < 10) {
       gif[i] = loadImage("frame_00"+i+"_delay-0.03s.gif");
-     } else if (i < 40) {
-       gif[i] = loadImage("frame_0"+i+"_delay-0.03s.gif");
-     }
-    i++;
+    } else if (i < 40) {
+      gif[i] = loadImage("frame_0"+i+"_delay-0.03s.gif");
     }
- 
+    i++;
+  }
+
   //font
   font = createFont("NotoSansMono-Light.ttf", 2);
-  
+
   //UFO generator timer
   generate = 0;
-  
+
   //teleport timer
   teleport = 0;
 }
 
 void draw() {
-  //background(0);
-  //myShip.show();
-  //myShip.act();
+
   if (mode == GAME) {
     background(0);
   }
   int i = 0;
   while (i < myObjects.size() && mode == GAME) {
     GameObject myObj = myObjects.get(i);
-    
+
     myObj.show();
     myObj.act();
-    
+
     if (myObj.lives == 0) {
-      myObjects.remove(i); 
+      myObjects.remove(i);
     } else if (shiplives == 0) {
       myObjects.remove(i);
     } else if (count == 21) {
       myObjects.remove(i);
     } else {
       i++;
-    }    
+    }
   }
-  
-   //modes
-   if (mode == INTRO) {
+
+  //modes
+  if (mode == INTRO) {
     intro();
   } else if (mode == GAME) {
     game();
@@ -152,11 +145,6 @@ void draw() {
   } else {
     println("Error: mode = " + mode);
   }
-  
-  //modes clarity
-  //if (mode != INTRO && mode != GAMEOVER) {
-  //  mode = GAME;
-  //}
 }
 
 void keyPressed() {
@@ -166,7 +154,6 @@ void keyPressed() {
   if (keyCode == RIGHT) rightkey = true;
   if (keyCode == ENTER) enterkey = true;
   if (key == ' ')       spacekey = true;
-  
 }
 
 void keyReleased() {
@@ -175,6 +162,5 @@ void keyReleased() {
   if (keyCode == LEFT)  leftkey  = false;
   if (keyCode == RIGHT) rightkey = false;
   if (keyCode == ENTER) enterkey = false;
-  if (key == ' ')       spacekey = false;  
-}
-  
+  if (key == ' ')       spacekey = false;
+} 

@@ -1,6 +1,4 @@
 void pause() {
-  //fill(0);
-  
   textSize(50);
   textAlign(CENTER);
   fill(darkyellow);

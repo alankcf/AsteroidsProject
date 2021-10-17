@@ -1,13 +1,10 @@
 class Ship extends GameObject {
   
-  //Instance Variables
-  
+  //Instance Variables  
   PVector direction;
   int shotTimer, threshold;
-  //int a, b;
-  //int flame;
   
-  //Constructors
+  //Constructor
   Ship() {
    shiplives = 3;
    lives = 1;
@@ -28,30 +25,19 @@ class Ship extends GameObject {
     translate(location.x, location.y);
     rotate(direction.heading());
     noFill();
-        
-    //stroke(flame);
- 
-    //triangle(-50, -17, -50, 17, -15, 0);
+
     if (immune >= 100) {
     stroke(white);
     } else if (immune < 100) {
-      //fill(black);
-      //stroke(white);
-      //ellipse(location.x,location.y, 75, 75);
       stroke(yellow);
       fill(yellow);
     }
     triangle(-25, -12.5, -25, 12.5, 25, 0);
-    //spaceship
-    popMatrix();
     
+    popMatrix();
   }
   
   void act() {
-    
-    //spaceship velocity
-    //location.add(velocity);
-    
     super.act();
     
     shotTimer++;
@@ -69,7 +55,6 @@ class Ship extends GameObject {
       myObjects.add(new Fire());
       myObjects.add(new Fire());
       myObjects.add(new Fire());
-      //flame = #FA7923;
     } 
     
     if (downkey)   velocity.sub(direction); //sub = subtract
@@ -79,10 +64,7 @@ class Ship extends GameObject {
       myObjects.add(new Bullet());
       shotTimer = 0;
     }
-    //print(teleport);
-    if (enterkey && teleport >= 200) {
-      
-      
+    if (enterkey && teleport >= 200) {      
       int c = 0;
       while (c < myObjects.size()) {
         GameObject myObj = myObjects.get(c);
@@ -101,19 +83,9 @@ class Ship extends GameObject {
           } else if (moves == false) {
             a = int (random(0, width));
             b = int (random(0, height));
-          }
-          
-    
-      }
-      //if (dist(myShip.location.x, myShip.location.y, location.x, location.y) <=  400) {
-      //if (a - location.x > 200 && b - location.y > 200) {
-      //if (moves == true) {
-      //  location = new PVector(a, b);
-      //  teleport = 0;
-      //  a = int (random(50, height-50));
-      //  b = int (random(50, width-50));
-         c++;
-         
+          }    
+        }
+        c++;      
       }
       teleport = 0;
     }
@@ -129,7 +101,6 @@ class Ship extends GameObject {
       //bullet
       if (myObj instanceof UFO_Bullet) {
         if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <=  25 + myObj.size) {
-            //myObj.lives = 0;
             if (immune > 100) {
             immune = 0;
             shiplives = shiplives - 1;          
@@ -137,9 +108,6 @@ class Ship extends GameObject {
           }
         }     
       i++;     
-    }
-    
-   
-    } 
-  
+      }      
+    }   
 }
