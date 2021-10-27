@@ -1,24 +1,26 @@
 class GameObject {
-
+  
   //common stuff
   int lives;
   PVector location;
   PVector velocity;
   int size;
-
+  
   GameObject() {
+    
   }
-
+  
   void show() {
+   
   }
-
+  
   void act() {
+  
     location.add(velocity);
-
-    //come back
-    if (location.y < -50)         location.y = height + 50;
-    if (location.y > height + 50) location.y = -50;
-    if (location.x < -50)         location.x = width + 50;
-    if (location.x > height + 50) location.x = -50;
+    
+    if (location.x <= 100) location.x = 100 + 3;
+    if (location.x >= 700) location.x = 700 - 3;
+    if (location.y <= 100) location.y = 100 + 3;
+    if (location.y >= 700) location.y = 700 - 3;
   }
 }
